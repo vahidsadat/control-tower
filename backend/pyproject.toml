@@ -1,0 +1,32 @@
+[project]
+name = "control-tower"
+version = "2020.0.0"
+requires-python = ">=3.13"
+author = {name = "Vahid Sadat", email = "sadatvahid1372@gmail.com"}
+
+description = " Control if a pipeline breaks or not"
+readme = "Readme.md"
+
+dependencies =[
+    "fastapi"
+]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.0.0",
+    "ruff>=0.15.0",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+exclude = [".git", ".venv", "__pycache__"]
+
+[tool.ruff.lint]
+# E (Error), F (Pyflakes), I (Isort for import sorting)
+select = ["E", "F", "I"]
+ignore = ["E501"] # Ignore line-too-long if you want the formatter to handle it
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"

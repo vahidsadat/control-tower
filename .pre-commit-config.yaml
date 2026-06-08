@@ -1,0 +1,19 @@
+repos:
+  # Python Linter & Formatter
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.15.16
+    hooks:
+      - id: ruff-check
+        args: [ --fix ]
+      - id: ruff-format
+
+  # TypeScript/JavaScript Linter
+  - repo: https://github.com/pre-commit/mirrors-eslint
+    rev: v9.16.0
+    hooks:
+      - id: eslint
+        files: \.[jt]sx?$ # Only run on JS, TS, JSX, TSX files
+        types: [file]
+        additional_dependencies:
+          - eslint@9.16.0
+          - eslint-config-next@15.1.0

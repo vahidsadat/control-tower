@@ -1,0 +1,802 @@
+[
+    {
+        "pipelineId": "pipe_001",
+        "name": "LinkedIn Company Shares",
+        "targetService": "LinkedIn API",
+        "schedule": "0 */2 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_002",
+        "name": "LinkedIn Profile Engagement",
+        "targetService": "LinkedIn API",
+        "schedule": "30 2 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_003",
+        "name": "LinkedIn Ad Campaign Performance",
+        "targetService": "LinkedIn API",
+        "schedule": "0 0 * * *",
+        "isActive": false,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_004",
+        "name": "LinkedIn Lead Gen Forms Sync",
+        "targetService": "LinkedIn API",
+        "schedule": "*/15 * * * *",
+        "isActive": true,
+        "ownerEmail": "data-team@company.com"
+    },
+    {
+        "pipelineId": "pipe_005",
+        "name": "Spotify Podcast Analytics",
+        "targetService": "Spotify Developer Platform",
+        "schedule": "30 1 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_006",
+        "name": "Spotify Track Streams Monitor",
+        "targetService": "Spotify Developer Platform",
+        "schedule": "0 12 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_007",
+        "name": "Spotify Artist Followers Ingestion",
+        "targetService": "Spotify Developer Platform",
+        "schedule": "0 6 * * *",
+        "isActive": false,
+        "ownerEmail": "marketing-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_008",
+        "name": "Spotify Playlist Tractions",
+        "targetService": "Spotify Developer Platform",
+        "schedule": "0 0 * * 0",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_009",
+        "name": "Facebook Ad Campaign Tracking",
+        "targetService": "Facebook Graph API",
+        "schedule": "0 0 * * 0",
+        "isActive": false,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_010",
+        "name": "Facebook Page Insights Pull",
+        "targetService": "Facebook Graph API",
+        "schedule": "0 */6 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_011",
+        "name": "Facebook Post Comments Monitor",
+        "targetService": "Facebook Graph API",
+        "schedule": "*/10 * * * *",
+        "isActive": true,
+        "ownerEmail": "support-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_012",
+        "name": "Instagram Business Media Sync",
+        "targetService": "Facebook Graph API",
+        "schedule": "0 2 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_013",
+        "name": "Stripe Daily Charges Extract",
+        "targetService": "Stripe API",
+        "schedule": "0 1 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_014",
+        "name": "Stripe Subscription Discrepancies",
+        "targetService": "Stripe API",
+        "schedule": "*/30 * * * *",
+        "isActive": true,
+        "ownerEmail": "finance-engineers@company.com"
+    },
+    {
+        "pipelineId": "pipe_015",
+        "name": "Stripe Failed Invoices Alerts",
+        "targetService": "Stripe API",
+        "schedule": "*/5 * * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_016",
+        "name": "Stripe Refund Metrics Aggregator",
+        "targetService": "Stripe API",
+        "schedule": "0 23 * * *",
+        "isActive": false,
+        "ownerEmail": "finance-engineers@company.com"
+    },
+    {
+        "pipelineId": "pipe_017",
+        "name": "Stripe Payouts Reconciliation",
+        "targetService": "Stripe API",
+        "schedule": "0 5 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_018",
+        "name": "GitHub Repo Commits Pull",
+        "targetService": "GitHub API",
+        "schedule": "*/5 * * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_019",
+        "name": "GitHub Pull Requests Audit",
+        "targetService": "GitHub API",
+        "schedule": "0 */1 * * *",
+        "isActive": true,
+        "ownerEmail": "devops-core@company.com"
+    },
+    {
+        "pipelineId": "pipe_020",
+        "name": "GitHub Issue Tracker Ingestion",
+        "targetService": "GitHub API",
+        "schedule": "*/15 * * * *",
+        "isActive": false,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_021",
+        "name": "GitHub Star & Fork Metrics",
+        "targetService": "GitHub API",
+        "schedule": "0 0 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_022",
+        "name": "GitHub Actions Build Telemetry",
+        "targetService": "GitHub API",
+        "schedule": "*/2 * * * *",
+        "isActive": true,
+        "ownerEmail": "devops-core@company.com"
+    },
+    {
+        "pipelineId": "pipe_023",
+        "name": "Google Analytics Realtime Traffic",
+        "targetService": "Google Analytics v4",
+        "schedule": "*/1 * * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_024",
+        "name": "Google Analytics Daily Summary",
+        "targetService": "Google Analytics v4",
+        "schedule": "0 4 * * *",
+        "isActive": true,
+        "ownerEmail": "marketing-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_025",
+        "name": "Google Analytics User Cohorts",
+        "targetService": "Google Analytics v4",
+        "schedule": "0 6 * * 1",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_026",
+        "name": "Google Analytics Acquisition Source",
+        "targetService": "Google Analytics v4",
+        "schedule": "0 */12 * * *",
+        "isActive": false,
+        "ownerEmail": "marketing-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_027",
+        "name": "Shopify Orders Realtime Sync",
+        "targetService": "Shopify GraphQL API",
+        "schedule": "*/5 * * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_028",
+        "name": "Shopify Inventory Levels Check",
+        "targetService": "Shopify GraphQL API",
+        "schedule": "0 */4 * * *",
+        "isActive": true,
+        "ownerEmail": "warehouse-tech@company.com"
+    },
+    {
+        "pipelineId": "pipe_029",
+        "name": "Shopify Abandoned Carts Collector",
+        "targetService": "Shopify GraphQL API",
+        "schedule": "0 * * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_030",
+        "name": "Shopify Customer Lifespan Value",
+        "targetService": "Shopify GraphQL API",
+        "schedule": "0 3 * * 0",
+        "isActive": false,
+        "ownerEmail": "data-team@company.com"
+    },
+    {
+        "pipelineId": "pipe_031",
+        "name": "Shopify Product Metadata Backup",
+        "targetService": "Shopify GraphQL API",
+        "schedule": "0 2 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_032",
+        "name": "HubSpot Deals Pipeline Flow",
+        "targetService": "HubSpot CRM API",
+        "schedule": "0 */2 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_033",
+        "name": "HubSpot Contacts Enrichment Sync",
+        "targetService": "HubSpot CRM API",
+        "schedule": "0 5 * * *",
+        "isActive": true,
+        "ownerEmail": "salesops@company.com"
+    },
+    {
+        "pipelineId": "pipe_034",
+        "name": "HubSpot Marketing Email Analytics",
+        "targetService": "HubSpot CRM API",
+        "schedule": "0 18 * * *",
+        "isActive": false,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_035",
+        "name": "HubSpot Company Hierarchies Sync",
+        "targetService": "HubSpot CRM API",
+        "schedule": "0 22 * * *",
+        "isActive": true,
+        "ownerEmail": "salesops@company.com"
+    },
+    {
+        "pipelineId": "pipe_036",
+        "name": "Salesforce Account Records Batch",
+        "targetService": "Salesforce REST API",
+        "schedule": "0 */4 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_037",
+        "name": "Salesforce Opportunity Forecasting",
+        "targetService": "Salesforce REST API",
+        "schedule": "0 23 * * 5",
+        "isActive": true,
+        "ownerEmail": "salesops@company.com"
+    },
+    {
+        "pipelineId": "pipe_038",
+        "name": "Salesforce Custom Object Ingestion",
+        "targetService": "Salesforce REST API",
+        "schedule": "0 12 * * *",
+        "isActive": false,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_039",
+        "name": "Salesforce Lead Assignments Polling",
+        "targetService": "Salesforce REST API",
+        "schedule": "*/10 * * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_040",
+        "name": "Slack Audit Trail Logs",
+        "targetService": "Slack Web APIs",
+        "schedule": "0 */1 * * *",
+        "isActive": true,
+        "ownerEmail": "secops@company.com"
+    },
+    {
+        "pipelineId": "pipe_041",
+        "name": "Slack Message Volume Tracking",
+        "targetService": "Slack Web APIs",
+        "schedule": "0 0 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_042",
+        "name": "Slack Custom Emoji Database",
+        "targetService": "Slack Web APIs",
+        "schedule": "0 0 1 * *",
+        "isActive": false,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_043",
+        "name": "Jira Ticket State Changes Sync",
+        "targetService": "Jira Cloud API",
+        "schedule": "*/5 * * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_044",
+        "name": "Jira Sprint Velocity Compiler",
+        "targetService": "Jira Cloud API",
+        "schedule": "0 18 * * 5",
+        "isActive": true,
+        "ownerEmail": "pm-office@company.com"
+    },
+    {
+        "pipelineId": "pipe_045",
+        "name": "Jira Worklog Time Extraction",
+        "targetService": "Jira Cloud API",
+        "schedule": "0 20 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_046",
+        "name": "Mailchimp Audience Growth Audit",
+        "targetService": "Mailchimp API",
+        "schedule": "0 7 * * *",
+        "isActive": true,
+        "ownerEmail": "marketing-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_047",
+        "name": "Mailchimp Unsubscribe Event Fire",
+        "targetService": "Mailchimp API",
+        "schedule": "*/30 * * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_048",
+        "name": "Twilio SMS Delivery Receipts",
+        "targetService": "Twilio REST API",
+        "schedule": "*/15 * * * *",
+        "isActive": true,
+        "ownerEmail": "support-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_049",
+        "name": "Twilio Call Log Records Aggregator",
+        "targetService": "Twilio REST API",
+        "schedule": "0 3 * * *",
+        "isActive": false,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_050",
+        "name": "TikTok Ads Spent Calculations",
+        "targetService": "TikTok Marketing API",
+        "schedule": "0 */3 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_051",
+        "name": "TikTok Video Performance Logs",
+        "targetService": "TikTok Marketing API",
+        "schedule": "0 15 * * *",
+        "isActive": true,
+        "ownerEmail": "marketing-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_052",
+        "name": "Pinterest Board Metrics Stream",
+        "targetService": "Pinterest Ads API",
+        "schedule": "0 4 * * *",
+        "isActive": false,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_053",
+        "name": "Notion Database Documentation Sync",
+        "targetService": "Notion Workspace API",
+        "schedule": "0 0 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_054",
+        "name": "AWS CloudWatch Critical Warnings",
+        "targetService": "AWS SDK",
+        "schedule": "*/1 * * * *",
+        "isActive": true,
+        "ownerEmail": "devops-core@company.com"
+    },
+    {
+        "pipelineId": "pipe_055",
+        "name": "AWS S3 Bucket Capacity Audit",
+        "targetService": "AWS SDK",
+        "schedule": "0 12 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_056",
+        "name": "AWS RDS DB CPU Profiler",
+        "targetService": "AWS SDK",
+        "schedule": "*/10 * * * *",
+        "isActive": true,
+        "ownerEmail": "devops-core@company.com"
+    },
+    {
+        "pipelineId": "pipe_057",
+        "name": "Google BigQuery Data Warehouse Sync",
+        "targetService": "Google Cloud SDK",
+        "schedule": "0 2 * * *",
+        "isActive": true,
+        "ownerEmail": "data-team@company.com"
+    },
+    {
+        "pipelineId": "pipe_058",
+        "name": "Google Cloud Storage Object Cleaner",
+        "targetService": "Google Cloud SDK",
+        "schedule": "0 0 1 * *",
+        "isActive": false,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_059",
+        "name": "Twitter/X Tweet Stream Tracker",
+        "targetService": "Twitter v2 API",
+        "schedule": "*/15 * * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_060",
+        "name": "Twitter/X Follower Counts Check",
+        "targetService": "Twitter v2 API",
+        "schedule": "0 22 * * *",
+        "isActive": true,
+        "ownerEmail": "marketing-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_061",
+        "name": "Intercom User Conversations",
+        "targetService": "Intercom API",
+        "schedule": "*/10 * * * *",
+        "isActive": true,
+        "ownerEmail": "support-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_062",
+        "name": "Intercom Help Center CSAT Sync",
+        "targetService": "Intercom API",
+        "schedule": "0 17 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_063",
+        "name": "Zendesk Solved Tickets Auditor",
+        "targetService": "Zendesk API",
+        "schedule": "0 */2 * * *",
+        "isActive": true,
+        "ownerEmail": "support-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_064",
+        "name": "Zendesk SLA Breaches Alerts",
+        "targetService": "Zendesk API",
+        "schedule": "*/5 * * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_065",
+        "name": "Asana Workspace Task Updates",
+        "targetService": "Asana API",
+        "schedule": "0 */4 * * *",
+        "isActive": false,
+        "ownerEmail": "pm-office@company.com"
+    },
+    {
+        "pipelineId": "pipe_066",
+        "name": "Trello Cards Movement Archival",
+        "targetService": "Trello API",
+        "schedule": "0 23 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_067",
+        "name": "Zoom Account Meeting Telemetry",
+        "targetService": "Zoom Developer API",
+        "schedule": "0 21 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_068",
+        "name": "Linear Dev Issues Intake",
+        "targetService": "Linear API",
+        "schedule": "*/5 * * * *",
+        "isActive": true,
+        "ownerEmail": "devops-core@company.com"
+    },
+    {
+        "pipelineId": "pipe_069",
+        "name": "SendGrid Email Bounce Track",
+        "targetService": "SendGrid Webhook Engine",
+        "schedule": "*/10 * * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_070",
+        "name": "SendGrid Daily Click Rates",
+        "targetService": "SendGrid Webhook Engine",
+        "schedule": "0 8 * * *",
+        "isActive": true,
+        "ownerEmail": "marketing-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_071",
+        "name": "Auth0 User Signups Stream",
+        "targetService": "Auth0 Management API",
+        "schedule": "*/15 * * * *",
+        "isActive": true,
+        "ownerEmail": "secops@company.com"
+    },
+    {
+        "pipelineId": "pipe_072",
+        "name": "Auth0 Suspicious Brute Forcing",
+        "targetService": "Auth0 Management API",
+        "schedule": "*/1 * * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_073",
+        "name": "Mixpanel Funnel Conversion Aggs",
+        "targetService": "Mixpanel Export API",
+        "schedule": "0 3 * * *",
+        "isActive": true,
+        "ownerEmail": "data-team@company.com"
+    },
+    {
+        "pipelineId": "pipe_074",
+        "name": "Mixpanel Retention Matrices",
+        "targetService": "Mixpanel Export API",
+        "schedule": "0 6 * * 1",
+        "isActive": false,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_075",
+        "name": "Amplitude Daily Active Users",
+        "targetService": "Amplitude HTTP API",
+        "schedule": "0 1 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_076",
+        "name": "Datadog Custom Metrics Pipeline",
+        "targetService": "Datadog API",
+        "schedule": "*/2 * * * *",
+        "isActive": true,
+        "ownerEmail": "devops-core@company.com"
+    },
+    {
+        "pipelineId": "pipe_077",
+        "name": "Sentry Critical Error Feeder",
+        "targetService": "Sentry Webhook API",
+        "schedule": "*/1 * * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_078",
+        "name": "NewRelic Service APM Dump",
+        "targetService": "NewRelic GraphQL",
+        "schedule": "0 */6 * * *",
+        "isActive": false,
+        "ownerEmail": "devops-core@company.com"
+    },
+    {
+        "pipelineId": "pipe_079",
+        "name": "PagerDuty Incidents Historical",
+        "targetService": "PagerDuty REST",
+        "schedule": "0 0 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_080",
+        "name": "Mailgun Inbound Parsing Routing",
+        "targetService": "Mailgun Events API",
+        "schedule": "*/20 * * * *",
+        "isActive": true,
+        "ownerEmail": "support-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_081",
+        "name": "PayPal Transactions Sync Engine",
+        "targetService": "PayPal REST API",
+        "schedule": "0 2 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_082",
+        "name": "AdRoll Retargeting Campaign Stats",
+        "targetService": "AdRoll API",
+        "schedule": "0 5 * * *",
+        "isActive": false,
+        "ownerEmail": "marketing-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_083",
+        "name": "Hotjar Session Record Counters",
+        "targetService": "Hotjar API",
+        "schedule": "0 22 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_084",
+        "name": "Segment Event Stream Audit",
+        "targetService": "Segment Config API",
+        "schedule": "0 */2 * * *",
+        "isActive": true,
+        "ownerEmail": "data-team@company.com"
+    },
+    {
+        "pipelineId": "pipe_085",
+        "name": "Klaviyo Flows Abandonment Sync",
+        "targetService": "Klaviyo v3 API",
+        "schedule": "0 * * * *",
+        "isActive": true,
+        "ownerEmail": "marketing-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_086",
+        "name": "Klaviyo SMS Attributions Tracker",
+        "targetService": "Klaviyo v3 API",
+        "schedule": "0 4 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_087",
+        "name": "Typeform Survey Responses Fetcher",
+        "targetService": "Typeform Core API",
+        "schedule": "*/30 * * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_088",
+        "name": "SurveyMonkey Feedback Data Ingestion",
+        "targetService": "SurveyMonkey API",
+        "schedule": "0 12 * * *",
+        "isActive": false,
+        "ownerEmail": "pm-office@company.com"
+    },
+    {
+        "pipelineId": "pipe_089",
+        "name": "Vimeo Video Views Extractor",
+        "targetService": "Vimeo API",
+        "schedule": "0 10 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_090",
+        "name": "YouTube Studio Analytics Channel",
+        "targetService": "YouTube Data API v3",
+        "schedule": "0 11 * * *",
+        "isActive": true,
+        "ownerEmail": "marketing-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_091",
+        "name": "WordPress Core Comments Audit",
+        "targetService": "WordPress REST Client",
+        "schedule": "0 */8 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_092",
+        "name": "Ghost CMS Newsletter Subscriptions",
+        "targetService": "Ghost Admin API",
+        "schedule": "0 9 * * *",
+        "isActive": true,
+        "ownerEmail": "marketing-dev@company.com"
+    },
+    {
+        "pipelineId": "pipe_093",
+        "name": "Webflow Form Submissions Polling",
+        "targetService": "Webflow Data API",
+        "schedule": "*/10 * * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_094",
+        "name": "Contentful Entry Publication Events",
+        "targetService": "Contentful Delivery API",
+        "schedule": "0 1 * * *",
+        "isActive": false,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_095",
+        "name": "Strapi Dynamic Content Sync",
+        "targetService": "Strapi CMS API",
+        "schedule": "0 2 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_096",
+        "name": "Algolia Index Synchronization Check",
+        "targetService": "Algolia Search API",
+        "schedule": "0 */12 * * *",
+        "isActive": true,
+        "ownerEmail": "devops-core@company.com"
+    },
+    {
+        "pipelineId": "pipe_097",
+        "name": "Elasticsearch Logging Clustered Analytics",
+        "targetService": "Elastic Enterprise API",
+        "schedule": "*/15 * * * *",
+        "isActive": true,
+        "ownerEmail": "devops-core@company.com"
+    },
+    {
+        "pipelineId": "pipe_098",
+        "name": "Logrocket Event Ingestion Matrix",
+        "targetService": "Logrocket REST",
+        "schedule": "0 5 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    },
+    {
+        "pipelineId": "pipe_099",
+        "name": "LaunchDarkly Feature Flag Shifts",
+        "targetService": "LaunchDarkly Core API",
+        "schedule": "*/5 * * * *",
+        "isActive": false,
+        "ownerEmail": "devops-core@company.com"
+    },
+    {
+        "pipelineId": "pipe_100",
+        "name": "Optimizely A/B Split Result Pull",
+        "targetService": "Optimizely Graph API",
+        "schedule": "0 */3 * * *",
+        "isActive": true,
+        "ownerEmail": "sadatvahid1372@gmail.com"
+    }
+]
