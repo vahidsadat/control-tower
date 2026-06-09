@@ -1,6 +1,7 @@
 import express from 'express';
 import * as dotenv from 'dotenv';
 import Data from './pipelineInfo'; 
+import cors from 'cors';
 import { MongoClient, ServerApiVersion } from 'mongodb';
 dotenv.config();
 const uri = process.env.MONGODB_URI
@@ -26,14 +27,27 @@ async function startApp(){
 
         const myDB = client.db("control-tower");
         const myCluster = myDB.collection("Cluster0");
-
-        const result = await myCluster.insertMany(Data);
-        console.log(`Successfully inserted ${result.insertedCount} items.`);
+        const dataCount = await myCluster.countDocuments();
+        if (dataCount ===0){
+            const result = await myCluster.insertMany(Data);
+            console.log(`Successfully inserted ${result.insertedCount} items.`);
+        } else {
+            console.log("Data already is there");
+        }
 
 
         const app = express();
+        app.use(cors());
         app.use(express.json());
 
+        app.get('/api/pipeline', async (req,res) =>{
+            try{
+                const data = await myCluster.find({}).toArray();
+                res.json(data);
+            }catch(error){
+                res.status(500).json({error:"Failed to fetch data"});
+            }
+        });
         const PORT = process.env.PORT ?? 5000;
         app.listen(PORT, () =>{
             console.log(`Control Tower backend active on http://localhost:${PORT}`);
@@ -44,4 +58,12 @@ async function startApp(){
     }
 }
 
+async function createExpressApp(){
+    
+}
+
 startApp();
+
+function main(){
+
+}

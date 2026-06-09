@@ -9,13 +9,20 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "next": "16.2.7",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "styled-components": "^6.4.2"
   },
   "devDependencies": {
+    "@emotion/core": "^11.0.0",
+    "@emotion/styled": "^11.14.1",
+    "@mui/material": "^9.1.0",
     "@tailwindcss/postcss": "^4",
+    "@types/express": "^5.0.6",
     "@types/node": "^20",
+    "@types/prop-types": "^15.7.15",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
