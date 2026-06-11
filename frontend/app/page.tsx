@@ -1,45 +1,33 @@
 "use client";
 import { useEffect, useState } from "react";
-import styled from "@emotion/styled";
 import CssBaseline from '@mui/material/CssBaseline';
-import PipelineType from "./PipelineType";
 import PipelineTable from "./components/PipelineTable";
 import PipelineFilter from "./components/PipelineFilter";
+import { usePipeline } from "@/src/hooks/usePipelines";
 
 export default function Dashboard(){
 
-  const [pipelines, setPipelines] = useState<PipelineType[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
 
 
-  const API_URL = 'http://localhost:5000';
-  useEffect(() =>{
-    const fetchData = async () => {
-      try{
-        const resoponce = await fetch(`http://localhost:5000/api/pipeline`);
-        const data = await resoponce.json();
-        if (!data){
-          throw new Error('No Data!');
-        }
-        setPipelines(data);
-        return console.log("Frontend received:", data);
-      } catch(err){
-        console.error("Failed to load datas: ",err);
-      } 
-    }
-  fetchData();
-  },[]);
+  const filteredPipelines = usePipeline().pipelines.filter((pipeline) => {
+    return pipeline.name.toLowerCase().includes(searchTerm.toLowerCase());
+  });
   return (
-    <main>
+    <main className="pb-8">
       <CssBaseline />
-      <div>
-        <h1> Control Tower</h1>
+      <div className="max-w-6xl mx-auto flex flex-col gap-4">
+        <div className="pt-5">
+          <h1 className="text-3xl font-bold font-roboto"> Control Tower</h1>
+        </div>
+        <div>
+          <PipelineFilter 
+            searchTerm = {searchTerm}
+            onSearchChange = {setSearchTerm}
+          />
+          <PipelineTable pipelines = {filteredPipelines}/>
+        </div>
       </div>
-      <div>
-        <PipelineFilter />
-      </div>
-      <div>
-        <PipelineTable pipelines = {pipelines}/>
-    </div>
     </main>
   );
 }

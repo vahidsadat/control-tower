@@ -1,22 +1,27 @@
 "use client";
+import IconButton from "@mui/material/IconButton";
 import PipelineType from "../PipelineType";
+import Stack from '@mui/material/Stack';
+import DeleteIcon from '@mui/icons-material/Delete';
+import { deletePipeline } from "@/src/hooks/usePipelines";
+
 export default function PipelineTable( {pipelines} : {pipelines : PipelineType[]}){
     return (
-        <div className="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-200">
-    <table className="w-70% text-center border-collapse">
+  <div className="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-200 w-full">
+    <table className="w-full text-left border-collapse">
       <thead>
         <tr className="bg-gray-50 border-b border-gray-200">
-          <th className="p-4 text-[15px] font-bold text-gray-500 uppercase" >Name</th>
+          <th className="w-auto p-4 text-[15px] font-bold text-gray-500 uppercase" >Name</th>
           <th className="p-4 text-[15px] font-bold text-gray-500 uppercase" >Service</th>
           <th className="p-4 text-[15px] font-bold text-gray-500 uppercase" >schedule</th>
           <th className="p-4 text-[15px] font-bold text-gray-500 uppercase" >Status</th>
           <th className="p-4 text-[15px] font-bold text-gray-500 uppercase" >Owner</th>
         </tr>
       </thead>
-      <tbody className="divide-y divide-black">
+      <tbody className="divide-y divide-gray-200">
           {pipelines.map((pipeline) => (
             <tr key={pipeline.pipelineId}>
-            <td>{pipeline.name}</td>
+            <td className="pl-3">{pipeline.name}</td>
             <td>{pipeline.targetService}</td>
             <td>{pipeline.schedule}</td>
             <td>
@@ -29,9 +34,14 @@ export default function PipelineTable( {pipelines} : {pipelines : PipelineType[]
               </span>
             </td>
             <td>{pipeline.ownerEmail}</td>
+            <td>
+              <IconButton aria-label="delete">
+                <DeleteIcon />
+              </IconButton>
+            </td>
             </tr>))}
       </tbody>
     </table>
-    </div>
+  </div>
     );
 }
