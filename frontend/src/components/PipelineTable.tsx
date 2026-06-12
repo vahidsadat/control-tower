@@ -1,11 +1,12 @@
 "use client";
 import IconButton from "@mui/material/IconButton";
-import PipelineType from "../PipelineType";
-import Stack from '@mui/material/Stack';
+import PipelineType from "../types/PipelineType";
 import DeleteIcon from '@mui/icons-material/Delete';
-import { deletePipeline } from "@/src/hooks/usePipelines";
+import { deletePipeline } from "../utils/api";
+import { usePipelines } from "../hooks/usePipelines";
 
 export default function PipelineTable( {pipelines} : {pipelines : PipelineType[]}){
+  const { setPipelines } = usePipelines();
     return (
   <div className="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-200 w-full">
     <table className="w-full text-left border-collapse">
@@ -35,8 +36,12 @@ export default function PipelineTable( {pipelines} : {pipelines : PipelineType[]
             </td>
             <td>{pipeline.ownerEmail}</td>
             <td>
-              <IconButton aria-label="delete">
-                <DeleteIcon />
+              <IconButton aria-label="delete"
+              arial-label ="delete"
+              onClick={() => deletePipeline(pipeline.pipelineId, setPipelines)}
+              className="text-gray-400 hover:text-red-400 transition-colors duration-150"
+              size="small">
+                <DeleteIcon fontSize="small"/>
               </IconButton>
             </td>
             </tr>))}

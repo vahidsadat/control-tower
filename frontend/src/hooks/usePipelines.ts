@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react";
-import PipelineType from "../../app/PipelineType";
+import PipelineType from "../types/PipelineType";
 
 const API_URL = 'http://localhost:5000';
 
-export function usePipeline(){
+export function usePipelines(){
     const [pipelines, setPipelines] = useState<PipelineType[]>([]);
     const [loading, setLoading] = useState<boolean>(true);
     const [error, setError] = useState<string | null>(null);
@@ -29,10 +29,3 @@ export function usePipeline(){
   },[]);
   return { pipelines, setPipelines, loading, error};
 };
-
-export async function deletePipeline (id:string){
-  
-    if(!confirm("Are you sure?")) return;
-    await fetch(`${API_URL}/api/pipeline/${id}`, {method: 'DELETE'})
-    usePipeline().setPipelines(prev => prev.filter(c=> c._id!==id))
-}

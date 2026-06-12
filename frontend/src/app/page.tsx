@@ -1,16 +1,19 @@
 "use client";
 import { useEffect, useState } from "react";
 import CssBaseline from '@mui/material/CssBaseline';
-import PipelineTable from "./components/PipelineTable";
-import PipelineFilter from "./components/PipelineFilter";
-import { usePipeline } from "@/src/hooks/usePipelines";
+import PipelineTable from "../components/PipelineTable";
+import PipelineFilter from "../components/PipelineFilter";
+import { usePipelines } from "@/src/hooks/usePipelines";
+import Button from '@mui/material/Button';
+import { resetPipelines } from '../utils/api'
 
 export default function Dashboard(){
 
   const [searchTerm, setSearchTerm] = useState<string>("");
+  const { pipelines, loading, error } = usePipelines();
 
 
-  const filteredPipelines = usePipeline().pipelines.filter((pipeline) => {
+  const filteredPipelines = usePipelines().pipelines.filter((pipeline) => {
     return pipeline.name.toLowerCase().includes(searchTerm.toLowerCase());
   });
   return (
@@ -21,10 +24,16 @@ export default function Dashboard(){
           <h1 className="text-3xl font-bold font-roboto"> Control Tower</h1>
         </div>
         <div>
+        <div className="flex flex-row gap-4">
           <PipelineFilter 
             searchTerm = {searchTerm}
             onSearchChange = {setSearchTerm}
           />
+          <Button variant="contained" size="small" color="error"
+          onClick={resetPipelines}>
+            Reset
+          </Button>
+          </div>
           <PipelineTable pipelines = {filteredPipelines}/>
         </div>
       </div>

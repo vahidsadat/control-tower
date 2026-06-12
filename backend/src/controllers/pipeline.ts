@@ -1,7 +1,7 @@
 import { type Request, type Response } from 'express';
 import { ObjectId } from 'mongodb';
 import {configureDatabase, getPipelineCollection} from '../config/database';
-import { error } from 'node:console';
+import importDataFromJsonFile from '../../pipelineInfo'
 
 export const getAllPipelines = async (req: Request,res: Response) =>{
     try{
@@ -28,8 +28,8 @@ export const deletePipelineItem =  async(req: Request, res: Response) => {
         if(!id || typeof id !=='string'){
             return res.status(400).json({error: "Invalid or malformed ID parameter"});
         }
-        const myCluster = getPipelineCollection();
-        const result = await myCluster.deleteOne({ _id: new ObjectId(id) });
+        const Cluster = getPipelineCollection();
+        const result = await Cluster.deleteOne({ _id: new ObjectId(id) });
 
         if(result.deletedCount === 0){
             res.status(404).json({error:"Pipeline is not found"});
@@ -42,3 +42,19 @@ export const deletePipelineItem =  async(req: Request, res: Response) => {
         res.status(500).json({message:"Failed to delete Pipeline from database"});
     }
 };
+
+export const resetPipelines = async(req: Request, res: Response) => {
+    try{
+    const Cluster = getPipelineCollection();
+    const deletedResult = await Cluster.deleteMany({});
+    console.log(`Cleared collection. Removed ${deletedResult.deletedCount} items.`)
+    await configureDatabase();
+    res.status(200).json({ 
+      message: "Database successfully rolled back to default baseline states.",
+      itemsRestored: importDataFromJsonFile.length 
+    });}catch(error){
+        console.error("Critical Reset System failure:", error);
+        res.status(500).json({ error: "Failed to securely execute database reset routine." });
+    }
+
+} 

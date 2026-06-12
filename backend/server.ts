@@ -2,7 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import * as dotenv from 'dotenv';
 import {configureDatabase} from './src/config/database';
-import { pipelineRoutes } from './src/routes/pipeline'
+import pipelineRoutes  from './src/routes/pipeline'
 
 dotenv.config();
 

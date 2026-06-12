@@ -1,0 +1,30 @@
+import React from "react";
+import  PipelineType  from '../types/PipelineType';
+const API_BASE_URL = "http://localhost:5000/api/pipeline";
+
+export async function deletePipeline (id:string, setPipelines:React.Dispatch<React.SetStateAction<PipelineType[]>>)
+: Promise<void> {
+    if(!confirm("Are you sure that you want to delete the Pipeline?")) return;
+
+    try{
+        const response = await fetch(`${API_BASE_URL}/${id}`, {method: 'DELETE'});
+        if(!response.ok) throw new Error("Api transition prosseccing failed");
+
+        setPipelines(prev => prev.filter(pipeline=> pipeline.pipelineId !==id));
+    } catch(error){
+        console.log("Transition error", error);
+        alert("system can't execute the removal operation.");
+    }
+};
+
+export async function resetPipelines() {
+    if(window.confirm(" This will delete all the changes and reset the seed data. Continue?")){
+        try{
+            const response = await fetch(`${API_BASE_URL}/reset`, { method: 'POST'});
+        }catch(error){
+        console.log("Transition error", error);
+        alert("system can't execute the removal operation.");
+    }
+    }
+    
+}
