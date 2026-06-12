@@ -4,15 +4,22 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
+
         {
             "type": "node",
             "request": "launch",
-            "name": "Launch Program",
+            "name": "Launch Server",
             "skipFiles": [
                 "<node_internals>/**"
             ],
-            "program": "${file}"
+            // Use npx to run tsx and pass the TypeScript entry file
+            "runtimeExecutable": "npx",
+            "args": [
+                "tsx",
+                "${workspaceFolder}/backend/src/server.ts"
+            ],
+            "cwd": "${workspaceFolder}/backend",
+            "console": "integratedTerminal"
         }
     ]
 }

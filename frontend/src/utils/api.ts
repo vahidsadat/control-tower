@@ -27,4 +27,27 @@ export async function resetPipelines() {
     }
     }
     
+};
+
+export async function updatePipeline (id:string, 
+    updateFields: Partial<PipelineType>,
+    setPipelines:React.Dispatch<React.SetStateAction<PipelineType[]>>)
+    : Promise<boolean>{
+    try{
+        const response = await fetch(`${API_BASE_URL}/${id}`,
+            {
+                method: 'PATCH',
+                headers:  { "Content-Type": "application/json" },
+                body: JSON.stringify(updateFields)
+            });
+            if (response.ok){
+                setPipelines((prev) => 
+                prev.map((c) => (c.pipelineId ===id ? { ...c, ...updateFields} as PipelineType : c)));
+            };
+            return true;
+        
+    }catch(error){
+        console.error("Update failed: ",error);
+        return false;
+    }
 }

@@ -16,6 +16,8 @@ export default function Dashboard(){
   const filteredPipelines = usePipelines().pipelines.filter((pipeline) => {
     return pipeline.name.toLowerCase().includes(searchTerm.toLowerCase());
   });
+  if (loading) return <div className="p-12 text-center text-lg font-medium text-gray-500 animate-pulse font-roboto">Synchronizing Control Tower Node...</div>;
+  if (error) return <div className="p-12 text-center text-lg font-semibold text-red-500 font-roboto">Cluster Synch Failure: {error}</div>;
   return (
     <main className="pb-8">
       <CssBaseline />

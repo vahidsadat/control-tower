@@ -2,6 +2,7 @@ import { type Request, type Response } from 'express';
 import { ObjectId } from 'mongodb';
 import {configureDatabase, getPipelineCollection} from '../config/database';
 import importDataFromJsonFile from '../../pipelineInfo'
+import cluster from 'node:cluster';
 
 export const getAllPipelines = async (req: Request,res: Response) =>{
     try{
@@ -57,4 +58,23 @@ export const resetPipelines = async(req: Request, res: Response) => {
         res.status(500).json({ error: "Failed to securely execute database reset routine." });
     }
 
-} 
+};
+
+export const updatePipelineItem = async(req: Request, res: Response) => {
+    try{
+        const {id} = req.params;
+        if(!id || typeof id !=='string'){
+            return res.status(400).json({error: "Invalid or malformed ID parameter"});
+        }
+        const { name,  schedule, isActive} = req.body;
+
+        const Cluster = getPipelineCollection();
+        const result = Cluster.updateOne(
+           { _id: new ObjectId(id)},
+           { $set: {name,  schedule, isActive} }
+        );
+        res.status(200).json({message: "Pipeline has been updated"});
+    } catch(error){
+        res.status(500).json({message: "Update operation failed"});
+    }
+}
