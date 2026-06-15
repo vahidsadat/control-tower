@@ -5,15 +5,18 @@ import PipelineTable from "../components/PipelineTable";
 import PipelineFilter from "../components/PipelineFilter";
 import { usePipelines } from "@/src/hooks/usePipelines";
 import Button from '@mui/material/Button';
-import { resetPipelines } from '../utils/api'
+import { resetPipelines } from '../utils/api';
+import PipelineType from "../types/PipelineType";
+import EditPipelineModal from "../components/EditPipelineModel";
 
 export default function Dashboard(){
 
+  const [editingPipeline, setEditingPipeline] = useState<PipelineType | null>(null)
   const [searchTerm, setSearchTerm] = useState<string>("");
-  const { pipelines, loading, error } = usePipelines();
+  const { pipelines, setPipelines, loading, error } = usePipelines();
 
 
-  const filteredPipelines = usePipelines().pipelines.filter((pipeline) => {
+  const filteredPipelines = pipelines.filter((pipeline) => {
     return pipeline.name.toLowerCase().includes(searchTerm.toLowerCase());
   });
   if (loading) return <div className="p-12 text-center text-lg font-medium text-gray-500 animate-pulse font-roboto">Synchronizing Control Tower Node...</div>;
@@ -36,9 +39,16 @@ export default function Dashboard(){
             Reset
           </Button>
           </div>
-          <PipelineTable pipelines = {filteredPipelines}/>
+          <PipelineTable pipelines = {filteredPipelines} onEditClick={setEditingPipeline}/>
         </div>
       </div>
+      {editingPipeline && (
+        <EditPipelineModal 
+        pipeline={editingPipeline}
+        onClose={() => setEditingPipeline(null)} //wipes state to close popup panel
+        setPipelines={setPipelines}
+        />
+      )}
     </main>
   );
 }

@@ -10,10 +10,10 @@ import { pipeline } from "stream";
 
 interface PipelineTableProps {
   pipelines: PipelineType[];
-  onClickEdit: (pipeline: PipelineType) => void;
+  onEditClick: (pipeline: PipelineType) => void;
 }
 
-export default function PipelineTable( {pipelines, onClickEdit} : PipelineTableProps){
+export default function PipelineTable( {pipelines, onEditClick} : PipelineTableProps){
   const { setPipelines } = usePipelines();
     return (
   <div className="bg-white shadow-xl rounded-2xl overflow-hidden border border-gray-200 w-full">
@@ -48,7 +48,7 @@ export default function PipelineTable( {pipelines, onClickEdit} : PipelineTableP
               <div className="flex justify-center gap-1">
                 <IconButton
                 aria-label="edit"
-                onClick={() => onClickEdit(pipeline)}
+                onClick={() => onEditClick(pipeline)}
                 className="text-gray-400 hover:text-gray-700 transition-colors duration-150">
                 <EditIcon fontSize="small"/>
                 </IconButton>
