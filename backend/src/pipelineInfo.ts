@@ -1,4 +1,4 @@
-import pipeline from '../pipeline_registry.json' with { type: 'json'};
+import pipeline from './pipeline_registry.json' with { type: 'json'};
 
 interface Pipeline {
     pipelineId: string;

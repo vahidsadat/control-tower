@@ -19,9 +19,10 @@ app.use('/api/pipeline', pipelineRoutes);
 const PORT = process.env.PORT ?? 5000;
 async function bootStrap(){
     await configureDatabase();
-    app.listen(PORT, () =>{
-    console.log(`Control Tower backend active on http://localhost:${PORT}`);
-});
+    // 💡 FIXED: Added '0.0.0.0' interface binding string explicitly
+    app.listen(Number(PORT), '0.0.0.0', () => {
+        console.log(`Control Tower backend active on port ${PORT}`);
+    });
 };
 
 bootStrap();

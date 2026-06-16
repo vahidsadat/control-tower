@@ -3,8 +3,8 @@ import  PipelineType  from '../types/PipelineType';
 const isServer = typeof window === 'undefined';
 
 export const API_BASE_URL = isServer
-  ? (process.env.BACKEND_INTERNAL_URL || 'http://backend-api:5000') // Docker-to-Docker routing
-  : (process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:5000');
+  ? 'http://backend-api:5000/api/pipeline' 
+  : 'http://localhost:5000/api/pipeline';
 
 export async function deletePipeline (id:string, setPipelines:React.Dispatch<React.SetStateAction<PipelineType[]>>)
 : Promise<void> {
