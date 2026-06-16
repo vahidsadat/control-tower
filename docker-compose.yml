@@ -42,6 +42,8 @@ services:
     environment:
       - NEXT_TELEMETRY_DISABLED=1
       - WATCHPACK_POLLING=true
+      - BACKEND_INTERNAL_URL=http://backend-api:5000
+      - NEXT_PUBLIC_BACKEND_URL=http://localhost:5000
     depends_on:
       - backend-api
     
@@ -49,4 +51,4 @@ volumes:
   postgres_data:
 networks:
   control-network:
-     - driver: bridge
+     driver: bridge

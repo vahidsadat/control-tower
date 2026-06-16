@@ -1,5 +1,5 @@
 import * as dotenv from 'dotenv';
-import Data from '../../pipelineInfo'; 
+import Data from '../pipelineInfo'; 
 import { Collection, MongoClient, ServerApiVersion } from 'mongodb';
 import { error } from 'node:console';
 dotenv.config();

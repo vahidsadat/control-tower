@@ -1,7 +1,6 @@
 import { type Request, type Response } from 'express';
 import { ObjectId } from 'mongodb';
 import {configureDatabase, getPipelineCollection} from '../config/database';
-import importDataFromJsonFile from '../../pipelineInfo';
 import { prisma } from '../config/prisma';
 
 export const getAllPipelines = async (req: Request,res: Response) =>{
