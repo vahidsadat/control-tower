@@ -11,15 +11,18 @@ export function usePipelines(){
     useEffect(() =>{
     const fetchData = async () => {
       try{
-        const resoponce = await fetch(`${API_URL}/api/pipeline`);
-        const data = await resoponce.json();
+        const response = await fetch(`${API_URL}/api/pipeline`);
+        if(!response.ok){
+          throw new Error(`Can't connect to URL`)
+        }
+        const data = await response.json();
         if (!data){
           throw new Error('No Data!');
         }
         setPipelines(data);
         return console.log("Frontend received:", data);
       } catch(err:any){
-        console.error("Failed to load datas: ",err);
+        console.error("Failed to load data: ",err);
         setError(err.message || "Something went wront");
       } finally {
         setLoading(false);
