@@ -44,10 +44,11 @@ export async function updatePipeline (id:string,
                 headers:  { "Content-Type": "application/json" },
                 body: JSON.stringify(updateFields)
             });
-            if (response.ok){
-                setPipelines((prev) => 
-                prev.map((c) => (c.pipelineId ===id ? { ...c, ...updateFields} as PipelineType : c)));
-            };
+            if (!response.ok) return false;
+
+            setPipelines((prevPipeline) => 
+            prevPipeline.map((pipeline) => pipeline.pipelineId ===id ? { ...pipeline, ...updateFields} as PipelineType : pipeline));
+            
             return true;
         
     }catch(error){

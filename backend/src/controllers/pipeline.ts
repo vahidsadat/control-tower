@@ -1,7 +1,6 @@
 import { type Request, type Response } from 'express';
 import { ObjectId } from 'mongodb';
 import {configureDatabase, getPipelineCollection} from '../config/database';
-import { prisma } from '../config/prisma';
 
 export const getAllPipelines = async (req: Request,res: Response) =>{
     try{
@@ -50,27 +49,10 @@ export const resetPipelines = async(req: Request, res: Response) => {
     console.log(`Cleared collection. Removed ${deletedResult.deletedCount} items.`)
     await configureDatabase();
 
-    await prisma.pipeline.deleteMany({});
-    const freshMongoData = await Cluster.find({}).toArray();
-
-
-    for (const item of freshMongoData){
-        await prisma.pipeline.create({
-            data: {
-                id: item._id.toString(),
-                name: item.name,
-                targetService: item.targetService || 'Unknown',
-                schedule: item.schedule,
-                isActive: item.isActive ?? true,
-                ownerEmail: item.ownerEmail || "system@controltower.com"
-
-            }
-        });
-    }
-    console.log(`✅ Dual-Database Sync Complete! Populated ${freshMongoData.length} items into PostgreSQL.`);
+   
+    console.log(`✅ Database Sync Complete!`);
     res.status(200).json({ 
       message: "Database successfully rolled back to default baseline states.",
-      itemsRestored: freshMongoData.length 
     });}catch(error){
         console.error("Critical Reset System failure:", error);
         res.status(500).json({ error: "Failed to securely execute database reset routine." });
@@ -92,29 +74,12 @@ export const updatePipelineItem = async(req: Request, res: Response) => {
            { $set: {name,  schedule, isActive, targetService, ownerEmail} }
         );
 
-        const updatedPipeline = await prisma.pipeline.upsert({
-            where: { id:id },
-            update: {
-                name,
-                targetService,
-                schedule,
-                isActive,
-                ownerEmail
-            },
-            create: {
-                id: id,
-                name,
-                targetService,
-                schedule,
-                isActive,
-                ownerEmail
-            }
-        });
+        
         res.status(200).json({
             message: "Pipeline has been updated",
-        data: updatedPipeline
     });
     } catch(error){
-        res.status(500).json({message: "Update operation failed"});
+        res.status(500).json({error: "Update operation failed"});
+        console.error("the error: ", error);
     }
 };
