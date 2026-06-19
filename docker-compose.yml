@@ -1,55 +1,29 @@
-services:
-  postgres-db:
-    image: postgres:17-alpine
-    container_name: control-tower-postgres
-    environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
-    ports:
-      - "5432:5432"
-    volumes:
-      - postgres_data:/var/lib/postgresql/data
-    networks:
-      - control-network
+version: '3.8'
 
-  backend-api:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
-    container_name: control-tower-backend
+services:
+  backend:
+    build: ./backend
     ports:
-      - "5000:5000"
-    env_file:
-      - .env
+      - "${BACKEND_HOST_PORT}:5000"
     environment:
-      - NODE_ENV=production
-      - PORT=5000
-      - DATABASE_URL=${DATABASE_URL}  # 💡 CLEANER: Passed directly from your .env file
       - MONGODB_URI=${MONGODB_URI}
-    depends_on:
-      - postgres-db
-    networks:
-      - control-network
   
   frontend:
     build: ./frontend
     ports:
-      - "3000:3000"
+      - "${FRONTEND_HOST_PORT}:3000"
     environment:
-      - NEXT_TELEMETRY_DISABLED=1
-      - WATCHPACK_POLLING=true
-      - BACKEND_INTERNAL_URL=http://backend-api:5000
-      - NEXT_PUBLIC_BACKEND_URL=http://localhost:5000
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+      - NEXT_PUBLIC_API_URL=http://localhost:${BACKEND_HOST_PORT}
     depends_on:
-      - backend-api
-    networks:
-      - control-network
-    
-volumes:
-  postgres_data:
-networks:
-  control-network:
-    driver: bridge
+      - backend
+
+  kafka:
+    image: apache/kafka:latest
+    container_name : control-tower-kafka
+  
+  postgresql:
+    image: postgres
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}

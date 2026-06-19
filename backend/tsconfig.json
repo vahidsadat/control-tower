@@ -2,13 +2,8 @@
   // Visit https://aka.ms/tsconfig to read more about this file
   "compilerOptions": {
     // File Layout
-    "rootDirs": [
-      "./src",
-      "./generated/prisma"
-    ],
-    "paths": {
-      "@prisma/client": ["./generated/prisma"],},
-    "outDir": "./dist",
+    // "rootDirs": "./src",
+    // "outDir": "./dist",
 
     // Environment Settings
     // See also https://aka.ms/tsconfig/module
@@ -47,15 +42,10 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
   },
-  "include": [
-    "src/**/*",
-    "generated/prisma/**/*"                          // 💡 Only compile files inside the src directory
-  ],
-  "exclude": [
-    "node_modules",
-    "dist",
-    "prisma",                            // 💡 Tells tsc to ignore your prisma schema folder
-    "generated",                         // 💡 Tells tsc to ignore the generated browser artifacts causing the crash
-    "prisma.config.ts"                   // 💡 Explicitly ignores the config file outside your rootDir
-  ]
+  // "include":"src/**/*"  ,                        // 💡 Only compile files inside the src directory
+  
+  // "exclude": [
+  //   "node_modules",
+  //   "dist"
+  // ]
 }
