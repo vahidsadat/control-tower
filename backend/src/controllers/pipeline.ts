@@ -1,6 +1,9 @@
 import { type Request, type Response } from 'express';
 import { ObjectId } from 'mongodb';
 import {configureDatabase, getPipelineCollection} from '../config/database';
+import { EventEnvelop } from '../types/events';
+import { Pipeline } from '../types/pipelineInfo';
+import { kafka_instnace } from '../config/kafka';
 
 export const getAllPipelines = async (req: Request,res: Response) =>{
     try{
@@ -16,6 +19,7 @@ export const getAllPipelines = async (req: Request,res: Response) =>{
             ownerEmail: item.ownerEmail
         }));
         res.status(200).json(formattedData);
+       
     }catch(error){
         res.status(500).json({error:"Failed to fetch data"});
     }
@@ -34,7 +38,15 @@ export const deletePipelineItem =  async(req: Request, res: Response) => {
             return res.status(404).json({error:"Pipeline is not found"});
         }
 
+        const kafkaEnvelope: EventEnvelop<Pipeline> = {
+            action: "PIPELINE_DELETED",
+            timestamp: new Date().toISOString(),
+            data:{ pipelineId:id}
+        }
+        await kafka_instnace.initializeProducer("pipeline", kafkaEnvelope);
+
         res.status(200).json({message:"Pipeline hase been deleted successfully"});
+        
 
     }catch(error){
         console.error("Delete failed:", error);
@@ -74,7 +86,12 @@ export const updatePipelineItem = async(req: Request, res: Response) => {
            { $set: {name,  schedule, isActive, targetService, ownerEmail} }
         );
 
-        
+        const kafkaEnvelope: EventEnvelop<Pipeline> = {
+            action: "PIPELINE_UPDATED",
+            timestamp: new Date().toISOString(),
+            data:{ pipelineId:id, name,  schedule, isActive, targetService, ownerEmail}
+        }
+        await kafka_instnace.initializeProducer("pipeline", kafkaEnvelope);
         res.status(200).json({
             message: "Pipeline has been updated",
     });
